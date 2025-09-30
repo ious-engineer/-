@@ -148,6 +148,26 @@ color: #e0e0e0;
 .dark-mode .recommendation-title {
 color: #aaa;
 }
+.project-link {
+display: inline-block;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+color: white !important;
+text-decoration: none !important;
+padding: 8px 16px;
+border-radius: 20px;
+font-weight: bold;
+font-size: 0.95em;
+transition: all 0.3s ease;
+box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+.project-link:hover {
+transform: translateY(-2px);
+box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+text-decoration: none !important;
+}
+.dark-mode .project-link {
+background: linear-gradient(135deg, #66aaff 0%, #8a7fff 100%);
+}
  </style>
 </head>
 <body>
@@ -221,11 +241,15 @@ color: #aaa;
 
   <div class="section">
     <h2>Projects</h2>
-    <p><strong><a href="#">eConnect</a></strong></p>
-    <p>This Platform will simply connect educators and learners.</p>
+    <p><strong><a href="eConnect/frontend/index.html" target="_blank" class="project-link">🚀 eConnect - Live Demo</a></strong> — Education Management Platform</p>
+    <p>A comprehensive full-stack system connecting educators and learners in offline education environments. Built with Node.js and Express.js backend, featuring complete user authentication, role-based access control (Student/Educator/Admin), and personalized dashboards. Includes a modern frontend interface for testing all API endpoints. Key features include user registration/login, profile management, search functionality, and real-time dashboard analytics. The system uses MongoDB for data persistence, JWT for secure authentication, and RESTful API architecture. Originally designed as a C++/Figma college project, now evolved into a production-ready web application demonstrating modern full-stack development practices.</p>
+    
+    <p><strong>Backend Tech Stack:</strong> Node.js, Express.js, MongoDB, JWT, bcryptjs, CORS</p>
+    <p><strong>Frontend Tech Stack:</strong> HTML5, CSS3, JavaScript ES6+, Fetch API</p>
+    <p><strong>Features:</strong> User Authentication, Role-based Dashboards, Profile Management, Search System, API Documentation, Interactive Frontend</p>
 
-    <p><strong><a href="#">RE</a></strong></p>
-    <p>The platform integrates multiple core modules including property management, customer interaction, data analyt- ics, smart property features, and transaction security.</p>
+    <p><strong><a href="#">RE (Real Estate Platform)</a></strong> — Property Management System</p>
+    <p>Comprehensive backend solution integrating property management, customer interaction APIs, data analytics pipeline, and secure transaction processing. Features include automated property valuation algorithms, user management system, and cloud-based file storage with AWS S3 integration.</p>
   </div>
 
   <div class="section">
