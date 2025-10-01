@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jenny M. Subrastas - Sales Portfolio</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="profile pic.jpg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --border-color: #e5e7eb;
+            --success-color: #10b981;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode {
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --border-color: #374151;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+        }
+
+        /* KPI Stats */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .kpi-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .kpi-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-label {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Sales Process Flow */
+        .process-flow {
+            background: var(--bg-secondary);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            margin: 4rem 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .flow-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .flow-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .flow-step:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            right: -1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .flow-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .flow-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .flow-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Sales Highlights Cards */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .highlight-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .highlight-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .highlight-desc {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .highlight-metric {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--success-color), #059669);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: var(--shadow);
+        }
+
+        /* Testimonial Slider */
+        .testimonial-slider {
+            background: var(--bg-secondary);
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            margin: 4rem 0;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        .testimonial-title {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 20px;
+            margin: 4rem 0;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-desc {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary-color);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header .subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .kpi-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1rem;
+            }
+
+            .flow-steps {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .flow-step:not(:last-child)::after {
+                content: '↓';
+                right: 50%;
+                top: auto;
+                bottom: -1.5rem;
+                transform: translateX(50%);
+            }
+
+            .highlights-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .testimonial-text {
+                font-size: 1.1rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .section {
+                padding: 2rem 0;
+            }
+
+            .theme-toggle {
+                top: 10px;
+                right: 10px;
+                padding: 0.5rem 0.75rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle">
+        🌙 Dark Mode
+    </button>
+
+    <header class="header">
+        <div class="header-content">
+            <h1>Jenny M. Subrastas</h1>
+            <p class="subtitle">Sales Professional & Strategic Business Developer</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- KPI Stats Section -->
+        <section class="section">
+            <h2 class="section-title">Performance Metrics</h2>
+            <div class="kpi-grid">
+                <div class="kpi-card fade-in">
+                    <div class="kpi-number">125%</div>
+                    <div class="kpi-label">Quota Achievement</div>
+                </div>
+                <div class="kpi-card fade-in">
+                    <div class="kpi-number">90%</div>
+                    <div class="kpi-label">Client Retention Rate</div>
+                </div>
+                <div class="kpi-card fade-in">
+                    <div class="kpi-number">8+</div>
+                    <div class="kpi-label">International Clients</div>
+                </div>
+                <div class="kpi-card fade-in">
+                    <div class="kpi-number">40%</div>
+                    <div class="kpi-label">YoY Growth Generated</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sales Process Flow -->
+        <section class="section">
+            <h2 class="section-title">Sales Process Excellence</h2>
+            <div class="process-flow fade-in">
+                <div class="flow-steps">
+                    <div class="flow-step">
+                        <div class="flow-icon">🎯</div>
+                        <div class="flow-title">Prospecting</div>
+                        <div class="flow-desc">Strategic lead identification and market research</div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-icon">💬</div>
+                        <div class="flow-title">Pitching</div>
+                        <div class="flow-desc">Tailored presentations and value propositions</div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-icon">🤝</div>
+                        <div class="flow-title">Negotiation</div>
+                        <div class="flow-desc">Win-win solutions and terms optimization</div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-icon">✅</div>
+                        <div class="flow-title">Closing</div>
+                        <div class="flow-desc">Deal finalization and contract execution</div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-icon">🔄</div>
+                        <div class="flow-title">Retention</div>
+                        <div class="flow-desc">Long-term relationship building and growth</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sales Highlights -->
+        <section class="section">
+            <h2 class="section-title">Sales Achievements</h2>
+            <div class="highlights-grid">
+                <div class="highlight-card fade-in">
+                    <h3 class="highlight-title">Expanded Retail Footprint</h3>
+                    <p class="highlight-desc">
+                        Successfully increased daily customer conversions through strategic product positioning and personalized service approaches, while maintaining perfect inventory accuracy standards.
+                    </p>
+                    <span class="highlight-metric">+15 daily conversions</span>
+                </div>
+
+                <div class="highlight-card fade-in">
+                    <h3 class="highlight-title">International Client Growth</h3>
+                    <p class="highlight-desc">
+                        Built and maintained relationships with 8+ international clients across diverse industries, delivering customized solutions and achieving exceptional repeat business rates.
+                    </p>
+                    <span class="highlight-metric">90% repeat rate</span>
+                </div>
+
+                <div class="highlight-card fade-in">
+                    <h3 class="highlight-title">Digital Marketing Excellence</h3>
+                    <p class="highlight-desc">
+                        Delivered comprehensive marketing campaigns with over 60,000 words of content, professional presentations, and strategic business solutions that drove measurable client growth.
+                    </p>
+                    <span class="highlight-metric">60K+ words delivered</span>
+                </div>
+
+                <div class="highlight-card fade-in">
+                    <h3 class="highlight-title">Technical Sales Integration</h3>
+                    <p class="highlight-desc">
+                        Combined technical expertise in C++ and systems with sales strategy to provide unique value propositions, resulting in enhanced client trust and project success rates.
+                    </p>
+                    <span class="highlight-metric">100% project delivery</span>
+                </div>
+
+                <div class="highlight-card fade-in">
+                    <h3 class="highlight-title">Cross-Platform Success</h3>
+                    <p class="highlight-desc">
+                        Leveraged multiple platforms including Freelancer, Upwork, and direct contracts to build diverse client portfolio and demonstrate adaptability across different business models.
+                    </p>
+                    <span class="highlight-metric">3+ platforms mastered</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="section">
+            <h2 class="section-title">Client Recognition</h2>
+            <div class="testimonial-slider fade-in">
+                <div class="testimonial-content" id="testimonialContent">
+                    <div class="testimonial-text">
+                        "I had the pleasure of working with Jenny, and I can confidently say she is an exceptional professional who always goes above and beyond in her work. Her proactive approach and attention to detail made her an invaluable part of the team."
+                    </div>
+                    <div class="testimonial-author">Adam Koyuncu</div>
+                    <div class="testimonial-title">DevOps | SRE Engineer</div>
+                </div>
+                <div class="slider-dots">
+                    <span class="dot active" onclick="showTestimonial(0)"></span>
+                    <span class="dot" onclick="showTestimonial(1)"></span>
+                    <span class="dot" onclick="showTestimonial(2)"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section fade-in">
+            <h2 class="cta-title">Ready to Drive Results?</h2>
+            <p class="cta-desc">
+                Discover how my proven sales methodology and technical expertise can accelerate your business growth and client satisfaction.
+            </p>
+            <a href="retail sales associate- resume.pdf" download class="cta-button">
+                📄 Download Full Portfolio (PDF)
+            </a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="index.html" class="footer-link">Main Portfolio</a>
+            <a href="theious.engineer.html" class="footer-link">Technical Profile</a>
+            <a href="mailto:jennysubrastas25@gmail.com" class="footer-link">Contact</a>
+            <a href="https://linkedin.com/in/jennysubrastas-823017225" class="footer-link">LinkedIn</a>
+            <a href="https://github.com/ious-engineer" class="footer-link">GitHub</a>
+        </div>
+        <p>&copy; 2025 Jenny M. Subrastas. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const toggleBtn = document.getElementById('themeToggle');
+            
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                toggleBtn.innerHTML = '☀️ Light Mode';
+                localStorage.setItem('salesPortfolioTheme', 'dark');
+            } else {
+                toggleBtn.innerHTML = '🌙 Dark Mode';
+                localStorage.setItem('salesPortfolioTheme', 'light');
+            }
+        }
+
+        // Initialize theme on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('salesPortfolioTheme');
+            const toggleBtn = document.getElementById('themeToggle');
+            
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                toggleBtn.innerHTML = '☀️ Light Mode';
+            }
+        });
+
+        // Testimonial Slider
+        const testimonials = [
+            {
+                text: "I had the pleasure of working with Jenny, and I can confidently say she is an exceptional professional who always goes above and beyond in her work. Her proactive approach and attention to detail made her an invaluable part of the team.",
+                author: "Adam Koyuncu",
+                title: "DevOps | SRE Engineer"
+            },
+            {
+                text: "Intelligent and diligent. Hard working and delivers results. Highly recommended for any sales or business development role.",
+                author: "Paul Najarian",
+                title: "Founder, Pulvina Inc."
+            },
+            {
+                text: "She has quick adaptability and understood our requirements perfectly. She followed our guidelines and submitted exceptional work that exceeded expectations.",
+                author: "Van Thi N",
+                title: "Staff, Confirmis"
+            }
+        ];
+
+        let currentTestimonial = 0;
+
+        function showTestimonial(index) {
+            currentTestimonial = index;
+            const content = document.getElementById('testimonialContent');
+            const dots = document.querySelectorAll('.dot');
+            
+            // Update content
+            content.innerHTML = `
+                <div class="testimonial-text">
+                    "${testimonials[index].text}"
+                </div>
+                <div class="testimonial-author">${testimonials[index].author}</div>
+                <div class="testimonial-title">${testimonials[index].title}</div>
+            `;
+            
+            // Update dots
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        // Auto-rotate testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+
+        // Scroll Animation
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(el => {
+                if (isElementInViewport(el)) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+
+        // Throttled scroll event
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
+            scrollTimeout = setTimeout(handleScrollAnimations, 10);
+        });
+
+        // Initial check
+        handleScrollAnimations();
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
