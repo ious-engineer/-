@@ -41,3 +41,6 @@ coverage/
 
 # MongoDB data
 data/
+
+# eConnect project (moved to separate repository)
+eConnect/
