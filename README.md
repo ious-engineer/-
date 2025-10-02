@@ -1,6 +1,6 @@
 # Jenny M. Subrastas - Portfolio
 
-[![Live Portfolio](https://img.shields.io/badge/Live-Portfolio-blue?style=for-the-badge)]([https://ious-engineer.github.io/portfolio](https://ious-engineer.github.io/-/))
+[![Live Portfolio](https://img.shields.io/badge/Live-Portfolio-blue?style=for-the-badge)](https://ious-engineer.github.io/-/)
 
 ## 🌟 About
 
@@ -34,13 +34,13 @@ Personal portfolio website showcasing my experience in Computer Engineering, sal
 
 ## 🌐 Live Demo
 
-Visit the live portfolio: [https://ious-engineer.github.io/portfolio]([https://ious-engineer.github.io/portfolio](https://ious-engineer.github.io/-/))
+Visit the live portfolio: (https://ious-engineer.github.io/-/)
 
 ## 📧 Contact
 
 - **Email**: jennysubrastas25@gmail.com
 - **LinkedIn**: [linkedin.com/in/jennysubrastas-823017225](https://linkedin.com/in/jennysubrastas-823017225)
-- **GitHub**: [github.com/ious-engineer](https://github.com/ious-engineer)
+- **GitHub**: (https://github.com/ious-engineer)
 
 ---
 
