@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jenny M. Subrastas - IOUS</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="profile pic.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+      background-color: #fff;
+      color: #222;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    h1, h2 {
+      margin-bottom: 0.2em;
+    }
+    h1 {
+      font-size: 2em;
+    }
+    h2 {
+      font-size: 1.4em;
+      margin-top: 1.4em;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.2em;
+      transition: border-bottom-color 0.3s ease;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+   ul {
+margin: 0;
+padding-left: 20px;
+}
+.header {
+text-align: center;
+margin-bottom: 20px;
+}
+.profile-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 1rem;
+}
+.profile-title {
+margin: 0;
+font-size: 2em;
+}
+.nav-links {
+display: flex;
+gap: 0.5rem;
+}
+.nav-link {
+color: #0066cc;
+text-decoration: none;
+padding: 0.5rem 1rem;
+border-radius: 20px;
+border: 2px solid #e5e7eb;
+font-weight: 500;
+font-size: 0.9rem;
+transition: all 0.3s ease;
+background: #f8fafc;
+}
+.nav-link:hover {
+background: #e5e7eb;
+border-color: #0066cc;
+}
+.nav-link.active {
+background: #0066cc;
+color: white;
+border-color: #0066cc;
+}
+.dark-mode .nav-link {
+background: #374151;
+border-color: #4b5563;
+color: #d1d5db;
+}
+.dark-mode .nav-link:hover {
+background: #4b5563;
+border-color: #66aaff;
+}
+.dark-mode .nav-link.active {
+background: #66aaff;
+color: #1f2937;
+border-color: #66aaff;
+}
+.download-resume {
+margin-top: 0.5em;
+font-size: 1em;
+}
+.section {
+margin-bottom: 1.5em;
+}
+.dark-mode {
+background-color: #121212;
+color: #e0e0e0;
+}
+.dark-mode h2 {
+border-bottom-color: #444;
+}
+.dark-mode a {
+color: #66aaff;
+}
+.dark-mode .toggle-btn {
+background-color: #333;
+color: #e0e0e0;
+border-color: #555;
+}
+.toggle-btn {
+position: fixed;
+top: 10px;
+right: 10px;
+padding: 6px 10px;
+border: 1px solid #666;
+border-radius: 4px;
+background-color: #fff;
+color: #222;
+cursor: pointer;
+font-size: 12px;
+transition: all 0.3s ease;
+}
+.toggle-btn:hover {
+background-color: #f0f0f0;
+}
+.cert-link {
+font-weight: bold;
+color: #0066cc;
+text-decoration: none;
+border-bottom: 1px dotted #0066cc;
+}
+.cert-link:hover {
+background-color: #f0f8ff;
+text-decoration: none;
+}
+.dark-mode .cert-link {
+color: #66aaff;
+border-bottom-color: #66aaff;
+}
+.dark-mode .cert-link:hover {
+background-color: rgba(102, 170, 255, 0.1);
+}
+.recommendation {
+background-color: #f8f9fa;
+border-left: 4px solid #0066cc;
+padding: 20px;
+margin: 15px 0;
+border-radius: 8px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+transition: all 0.3s ease;
+}
+.recommendation:hover {
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+transform: translateY(-2px);
+}
+.recommendation-text {
+font-style: italic;
+margin-bottom: 15px;
+color: #555;
+line-height: 1.6;
+}
+.recommendation-author {
+font-weight: bold;
+color: #333;
+margin-bottom: 5px;
+}
+.recommendation-title {
+color: #666;
+font-size: 0.9em;
+}
+.dark-mode .recommendation {
+background-color: #2a2a2a;
+border-left-color: #66aaff;
+box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+.dark-mode .recommendation:hover {
+box-shadow: 0 4px 8px rgba(255, 255, 255, 0.15);
+}
+.dark-mode .recommendation-text {
+color: #ccc;
+}
+.dark-mode .recommendation-author {
+color: #e0e0e0;
+}
+.dark-mode .recommendation-title {
+color: #aaa;
+}
+.project-link {
+display: inline-block;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+color: white !important;
+text-decoration: none !important;
+padding: 8px 16px;
+border-radius: 20px;
+font-weight: bold;
+font-size: 0.95em;
+transition: all 0.3s ease;
+box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+.project-link:hover {
+transform: translateY(-2px);
+box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+text-decoration: none !important;
+}
+.dark-mode .project-link {
+background: linear-gradient(135deg, #66aaff 0%, #8a7fff 100%);
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+.profile-header {
+flex-direction: column;
+gap: 1rem;
+text-align: center;
+}
+.nav-links {
+flex-wrap: wrap;
+justify-content: center;
+gap: 0.5rem;
+}
+.nav-link {
+padding: 0.4rem 0.8rem;
+font-size: 0.8rem;
+}
+}
+
+@media (max-width: 480px) {
+.nav-links {
+flex-direction: column;
+width: 100%;
+}
+.nav-link {
+width: 100%;
+text-align: center;
+}
+}
+ </style>
+</head>
+<body>
+<button class="toggle-btn" onclick="toggleDarkMode()" id="themeToggle">🌙 Dark Mode</button>
+
+
+<div class="header">
+</div>
+
+<div class="section">
+<div class="profile-header">
+<h1 class="profile-title">Jenny M. Subrastas</h1>
+<nav class="nav-links">
+<a href="index.html" class="nav-link active">Main</a>
+<a href="sales-portfolio.html" class="nav-link">Sales</a>
+<a href="technical-portfolio.html" class="nav-link">Technical</a>
+</nav>
+</div>
+<p>Computer Engineering + Business + Customized Solutions</p>
+<p class="download-resume">
+<a href="retail sales associate- resume.pdf" download>Download Resume (PDF)</a>
+</p>
+</div>
+
+  <div class="section">
+    <h2>About</h2>
+    <p>
+      I studied Computer Engineering and focused on using C++ to solve real-world problems. Along the way, I worked in sales, which gave me a clear view of how technology and business connect. I like creating solutions that make operations smoother and more efficient. Right now, I’m building my brand and aiming to grow into tech-driven business and digital services.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Experience</h2>
+    <p><strong> Various Clients – via Freelancer, Upwork, and Direct Contracts · Freelance / Sales and Marketing Specialist</strong> &mdash; Oct. 2022  – Present</p>
+    <ul>
+      <li> Sales & Outreach: Conducted lead generation, client prospecting, and targeted outreach campaigns, achieving a 90% repeat-client rate.</li>
+      <li> Client Consultation: Provided tailored business solutions by combining sales strategy with technical knowledge, building long-term trust with direct clients.</li>
+      <li> Marketing & Content Development: Delivered 60,000+ words of marketing content and designed professional presentations supporting client campaigns.</li>
+      <li>  Technical & Operational Support: Assisted in development tasks (C++/systems) and conducted on-site business verification projects to validate client operations.</li>
+      <li>  Project Delivery: Completed 8+ contracts across international clients with measurable results in sales support, marketing visibility, and operational accuracy.</li>
+    </ul>
+
+    <p><strong> Collecticons Inc. Filbar's Multiverse GH / Sales Associate</strong> &mdash; Mar. 2025  – Aug. 2025</p>
+    <ul>
+      <li> Converted 15+ daily customer inquiries into purchases through tailored
+      service.</li>
+      <li>Maintained 100% stock accuracy and optimized product displays to boost
+      sales.</li>
+      <li> Built customer loyalty by resolving concerns quickly and professionally.</li>
+    </ul>
+
+    <p><strong>Green Life AVM Advertising / Sales Representative</strong> &mdash; Feb. 2022 – Jul. 2022</p>
+    <ul>
+      <li>Conducted live product demonstrations and persuasive sales
+      presentations.</li>
+      <li>Negotiated and closed multiple deals, consistently meeting targets.</li>
+      <li> Researched customer behavior to improve targeting and conversion rates.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Education</h2>
+    <p><strong> Bachelor of Science in Computer Engineering</strong> — Eulogio "Amang" Rodriguez Institute of Science and Technology (EARIST), 2023-2024</p>
+    <p><strong>  Science, Technology, Engineering, and Mathematics (STEM)</strong> — Cabadbaran City National Highschool - SHS, 2021-2022</p>
+  </div>
+
+  <div class="section">
+    <h2>Tech Stack</h2>
+    <ul>
+      <li>Programming Languages: C++, JavaScript, Python</li>
+      <li>Frontend Development: Css3, HTML5</li>
+      <li>Backend Development: Nodejs</li>
+      <li>AI/ML: Tensorflow</li>
+      <li>Tools & Frameworks: Git, Linux, Unreal Engine, Figma...</li>
+      <li>Business: Digital Marketing, B2C Sales</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Projects</h2>
+    <p><strong><a href="eConnect/frontend/econnect-admin-dashboard.html" target="_blank" class="project-link">🚀 eConnect - Live Demo</a></strong> — Education Management Platform</p>
+    <p>A comprehensive full-stack system connecting educators and learners in offline education environments. Built with Node.js and Express.js backend, featuring complete user authentication, role-based access control (Student/Educator/Admin), and personalized dashboards. Includes a modern frontend interface for testing all API endpoints. Key features include user registration/login, profile management, search functionality, and real-time dashboard analytics. The system uses MongoDB for data persistence, JWT for secure authentication, and RESTful API architecture. Originally designed as a C++/Figma college project, now evolved into a production-ready web application demonstrating modern full-stack development practices.</p>
+    
+    <p><strong>Backend Tech Stack:</strong> Node.js, Express.js, MongoDB, JWT, bcryptjs, CORS</p>
+    <p><strong>Frontend Tech Stack:</strong> HTML5, CSS3, JavaScript ES6+, Fetch API</p>
+    <p><strong>Features:</strong> User Authentication, Role-based Dashboards, Profile Management, Search System, API Documentation, Interactive Frontend</p>
+    <p><strong>Links:</strong> 
+        <a href="https://github.com/ious-engineer/eConnect" target="_blank" class="project-link">📂 GitHub Repository</a>
+    </p>
+
+    <p><strong><a href="#">RE (Real Estate Platform)</a></strong> — Property Management System</p>
+    <p>Comprehensive backend solution integrating property management, customer interaction APIs, data analytics pipeline, and secure transaction processing. Features include automated property valuation algorithms, user management system, and cloud-based file storage with AWS S3 integration.</p>
+  </div>
+
+  <div class="section">
+    <h2>Certifications</h2>
+    <ul>
+      <li><a href="Computer Systems Servicing-NC2.jpg" class="cert-link" download>COMPUTER SYSTEM SERVICING - NC2</a> — Tesda, 2024</li>
+      <li><a href="Computer Hardware Basics.pdf" class="cert-link" download>Computer Hardware Basics</a> — CISCO, 2024</li>
+      <li><a href="Operating System Basics.pdf" class="cert-link" download>Operating Systems Basics</a> — CISCO, 2024</li>
+      <li><a href="AWS participation certificate.png" class="cert-link" download>AWS Builders Online Series</a> — AWS, 2024</li>
+      <li><a href="Digital Marketing.png" class="cert-link" download>Fundamentals of Digital Marketing</a> — Google, 2023</li>
+      <li><a href="Administrative certification.png" class="cert-link" download>Administrative Professional Foundations</a> — LinkedIn, 2023</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Recommendations</h2>
+    
+    <div class="recommendation">
+      <div class="recommendation-text">
+        "I had the pleasure of working with Jenny, and I can confidently say she is an exceptional professional who always goes above and beyond in her work. Jenny consistently took instruction well, quickly grasping complex tasks and delivering high-quality results with minimal supervision. What really sets Jenny apart is her proactive approach. She not only excels at the tasks assigned to her, but she also anticipates needs and takes the initiative to suggest improvements and implement solutions. Her attention to detail, combined with her ability to adapt under pressure, made her an invaluable part of the team. Jenny is a dedicated, hardworking individual who always maintains a positive attitude and a strong commitment to any project she takes on. I highly recommend her for any role where dedication, problem-solving, and a collaborative mindset are valued. She would be a great asset to any team!"
+        </div>
+      <div class="recommendation-author">Adam Koyuncu</div>
+      <div class="recommendation-title">DevOps | SRE Engineer</div>
+    </div>
+
+    <div class="recommendation">
+      <div class="recommendation-text">
+        "Intelligent and diligent. Hard working and delivers results . Highly recommended"
+      </div>
+      <div class="recommendation-author">Paul Najarian</div>
+      <div class="recommendation-title">Founder, Pulvina Inc.</div>
+    </div>
+
+    <div class="recommendation">
+      <div class="recommendation-text">
+        "She has quick adaptability and understood our requirements. She followed our guidelines and submitted a very good job."
+      </div>
+      <div class="recommendation-author">Van Thi N</div>
+      <div class="recommendation-title">Staff, Confirmis</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:jennysubrastas25@gmail.com">jennysubrastas25@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/jennysubrastas-823017225">linkedin.com/in/jennysubrastas-823017225</a></p>
+    <p>GitHub: <a href="https://github.com/ious-engineer">github.com/ious-engineer</a></p>
+  </div>
+
+<script>
+function toggleDarkMode() {
+    const body = document.body;
+    const toggleBtn = document.getElementById('themeToggle');
+    
+    body.classList.toggle('dark-mode');
+    
+    // Update button text and icon
+    if (body.classList.contains('dark-mode')) {
+        toggleBtn.innerHTML = '☀️ Light Mode';
+        // Save preference to localStorage
+        localStorage.setItem('darkMode', 'enabled');
+    } else {
+        toggleBtn.innerHTML = '🌙 Dark Mode';
+        // Save preference to localStorage
+        localStorage.setItem('darkMode', 'disabled');
+    }
+}
+
+// Check for saved user preference on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const darkMode = localStorage.getItem('darkMode');
+    const toggleBtn = document.getElementById('themeToggle');
+    
+    if (darkMode === 'enabled') {
+        document.body.classList.add('dark-mode');
+        toggleBtn.innerHTML = '☀️ Light Mode';
+    }
+});
+</script>
+
+</body>
+</html>
