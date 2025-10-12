@@ -258,6 +258,7 @@ text-align: center;
 <div class="profile-header">
 <h1 class="profile-title">Jenny M. Subrastas</h1>
 <nav class="nav-links">
+<a href="main.html" class="nav-link active">Main</a>
 <a href="index.html" class="nav-link active">Main</a>
 <a href="sales-portfolio.html" class="nav-link">Sales</a>
 <a href="technical-portfolio.html" class="nav-link">Technical</a>
@@ -327,7 +328,7 @@ text-align: center;
     <h2>Projects</h2>
     <p><strong><a href="eConnect/frontend/econnect-admin-dashboard.html" target="_blank" class="project-link">🚀 eConnect - Live Demo</a></strong> — Education Management Platform</p>
     <p>A comprehensive full-stack system connecting educators and learners in offline education environments. Built with Node.js and Express.js backend, featuring complete user authentication, role-based access control (Student/Educator/Admin), and personalized dashboards. Includes a modern frontend interface for testing all API endpoints. Key features include user registration/login, profile management, search functionality, and real-time dashboard analytics. The system uses MongoDB for data persistence, JWT for secure authentication, and RESTful API architecture. Originally designed as a C++/Figma college project, now evolved into a production-ready web application demonstrating modern full-stack development practices.</p>
-
+    
     <p><strong>Backend Tech Stack:</strong> Node.js, Express.js, MongoDB, JWT, bcryptjs, CORS</p>
     <p><strong>Frontend Tech Stack:</strong> HTML5, CSS3, JavaScript ES6+, Fetch API</p>
     <p><strong>Features:</strong> User Authentication, Role-based Dashboards, Profile Management, Search System, API Documentation, Interactive Frontend</p>
@@ -353,7 +354,7 @@ text-align: center;
 
   <div class="section">
     <h2>Recommendations</h2>
-
+    
     <div class="recommendation">
       <div class="recommendation-text">
         "I had the pleasure of working with Jenny, and I can confidently say she is an exceptional professional who always goes above and beyond in her work. Jenny consistently took instruction well, quickly grasping complex tasks and delivering high-quality results with minimal supervision. What really sets Jenny apart is her proactive approach. She not only excels at the tasks assigned to her, but she also anticipates needs and takes the initiative to suggest improvements and implement solutions. Her attention to detail, combined with her ability to adapt under pressure, made her an invaluable part of the team. Jenny is a dedicated, hardworking individual who always maintains a positive attitude and a strong commitment to any project she takes on. I highly recommend her for any role where dedication, problem-solving, and a collaborative mindset are valued. She would be a great asset to any team!"
@@ -390,9 +391,9 @@ text-align: center;
 function toggleDarkMode() {
     const body = document.body;
     const toggleBtn = document.getElementById('themeToggle');
-
+    
     body.classList.toggle('dark-mode');
-
+    
     // Update button text and icon
     if (body.classList.contains('dark-mode')) {
         toggleBtn.innerHTML = '☀️ Light Mode';
@@ -409,7 +410,7 @@ function toggleDarkMode() {
 document.addEventListener('DOMContentLoaded', function() {
     const darkMode = localStorage.getItem('darkMode');
     const toggleBtn = document.getElementById('themeToggle');
-
+    
     if (darkMode === 'enabled') {
         document.body.classList.add('dark-mode');
         toggleBtn.innerHTML = '☀️ Light Mode';
