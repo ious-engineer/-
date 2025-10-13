@@ -4,48 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jenny M. Subrastas - Sales Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="profile pic.jpg">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --accent-color: #3b82f6;
-            --text-primary: #1f2937;
-            --text-secondary: #6b7280;
-            --bg-primary: #ffffff;
-            --bg-secondary: #f8fafc;
-            --border-color: #e5e7eb;
-            --success-color: #10b981;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
             line-height: 1.6;
-            color: var(--text-primary);
-            background-color: var(--bg-primary);
-            transition: all 0.3s ease;
+            background-color: #fff;
+            color: #222;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        .dark-mode {
-            --text-primary: #f9fafb;
-            --text-secondary: #d1d5db;
-            --bg-primary: #111827;
-            --bg-secondary: #1f2937;
-            --border-color: #374151;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        h1, h2 {
+            margin-bottom: 0.2em;
         }
 
-        /* Header */
+        h1 {
+            font-size: 2em;
+        }
+
+        h2 {
+            font-size: 1.4em;
+            margin-top: 1.4em;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 0.2em;
+            transition: border-bottom-color 0.3s ease;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
         .header {
+            text-align: center;
             margin-bottom: 20px;
         }
 
@@ -53,277 +60,420 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 2rem;
-            padding: 2rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            border-radius: 12px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .profile-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            margin-bottom: 1rem;
         }
 
         .profile-title {
-            position: relative;
-            z-index: 1;
             margin: 0;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: white;
+            font-size: 2em;
         }
 
         .nav-links {
-            position: relative;
-            z-index: 1;
             display: flex;
             gap: 0.5rem;
         }
 
         .nav-link {
-            color: white;
+            color: #0066cc;
             text-decoration: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 2px solid #e5e7eb;
             font-weight: 500;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            background: #f8fafc;
         }
 
         .nav-link:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.5);
-            transform: translateY(-2px);
+            background: #e5e7eb;
+            border-color: #0066cc;
         }
 
         .nav-link.active {
-            background: white;
-            color: var(--primary-color);
-            border-color: white;
-        }
-
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: #0066cc;
             color: white;
-            padding: 0.75rem 1rem;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            z-index: 1000;
+            border-color: #0066cc;
         }
 
-        .theme-toggle:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+        .dark-mode .nav-link {
+            background: #374151;
+            border-color: #4b5563;
+            color: #d1d5db;
         }
 
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .dark-mode .nav-link:hover {
+            background: #4b5563;
+            border-color: #66aaff;
+        }
+
+        .dark-mode .nav-link.active {
+            background: #66aaff;
+            color: #1f2937;
+            border-color: #66aaff;
+        }
+
+        .download-resume {
+            margin-top: 0.5em;
+            font-size: 1em;
         }
 
         .section {
-            padding: 4rem 0;
+            margin-bottom: 1.5em;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            color: var(--text-primary);
+        .dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
         }
 
-        /* KPI Stats */
+        .dark-mode h2 {
+            border-bottom-color: #444;
+        }
+
+        .dark-mode a {
+            color: #66aaff;
+        }
+
+        .dark-mode .toggle-btn {
+            background-color: #333;
+            color: #e0e0e0;
+            border-color: #555;
+        }
+
+        .toggle-btn {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 6px 10px;
+            border: 1px solid #666;
+            border-radius: 4px;
+            background-color: #fff;
+            color: #222;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        .cert-link {
+            font-weight: bold;
+            color: #0066cc;
+            text-decoration: none;
+            border-bottom: 1px dotted #0066cc;
+        }
+
+        .cert-link:hover {
+            background-color: #f0f8ff;
+            text-decoration: none;
+        }
+
+        .dark-mode .cert-link {
+            color: #66aaff;
+            border-bottom-color: #66aaff;
+        }
+
+        .dark-mode .cert-link:hover {
+            background-color: rgba(102, 170, 255, 0.1);
+        }
+
+        /* KPI Stats - Matching main page style */
         .kpi-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
         }
 
         .kpi-card {
-            background: var(--bg-secondary);
-            padding: 2rem;
-            border-radius: 16px;
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
             text-align: center;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
+            border: 1px solid #e5e7eb;
             transition: all 0.3s ease;
         }
 
         .kpi-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
+            background: #f0f8ff;
         }
 
         .kpi-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--primary-color);
+            font-size: 2rem;
+            font-weight: bold;
+            color: #0066cc;
             margin-bottom: 0.5rem;
         }
 
         .kpi-label {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
+            color: #666;
             font-weight: 500;
         }
 
-        /* Sales Process Flow */
+        .dark-mode .kpi-card {
+            background: #2a2a2a;
+            border-color: #444;
+        }
+
+        .dark-mode .kpi-card:hover {
+            background: #333;
+        }
+
+        .dark-mode .kpi-number {
+            color: #66aaff;
+        }
+
+        .dark-mode .kpi-label {
+            color: #aaa;
+        }
+
+        /* Sales Process - Matching main page style */
         .process-flow {
-            background: var(--bg-secondary);
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            margin: 4rem 0;
-            border: 1px solid var(--border-color);
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border: 1px solid #e5e7eb;
         }
 
         .flow-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 2rem;
-            align-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
         }
 
         .flow-step {
             text-align: center;
-            position: relative;
-        }
-
-        .flow-step:not(:last-child)::after {
-            content: '→';
-            position: absolute;
-            right: -1.5rem;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            font-weight: bold;
         }
 
         .flow-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
             font-size: 2rem;
-            color: white;
-            box-shadow: var(--shadow);
+            margin-bottom: 0.5rem;
         }
 
         .flow-title {
-            font-weight: 600;
+            font-weight: bold;
             margin-bottom: 0.5rem;
-            color: var(--text-primary);
         }
 
         .flow-desc {
             font-size: 0.9rem;
-            color: var(--text-secondary);
+            color: #666;
         }
 
-        /* Sales Highlights Cards */
+        .dark-mode .process-flow {
+            background: #2a2a2a;
+            border-color: #444;
+        }
+
+        .dark-mode .flow-desc {
+            color: #aaa;
+        }
+
+        /* Sales Highlights - Matching main page style */
         .highlights-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
         }
 
         .highlight-card {
-            background: var(--bg-primary);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 2rem;
+            background: #f8f9fa;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5rem;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .highlight-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
         }
 
         .highlight-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
+            background: #f0f8ff;
+            transform: translateY(-2px);
         }
 
         .highlight-title {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.2rem;
+            font-weight: bold;
             margin-bottom: 1rem;
-            color: var(--text-primary);
         }
 
         .highlight-desc {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
         }
 
         .highlight-metric {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--success-color), #059669);
+            background: #0066cc;
             color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            box-shadow: var(--shadow);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: inline-block;
         }
 
-        /* Animation Classes */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+        .dark-mode .highlight-card {
+            background: #2a2a2a;
+            border-color: #444;
         }
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .dark-mode .highlight-card:hover {
+            background: #333;
         }
 
-        /* Responsive Design */
+        .dark-mode .highlight-desc {
+            color: #ccc;
+        }
+
+        .dark-mode .highlight-metric {
+            background: #66aaff;
+            color: #1f2937;
+        }
+
+        /* Recommendations Section */
+        .recommendation {
+            background-color: #f8f9fa;
+            border-left: 4px solid #0066cc;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .recommendation:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+        .recommendation-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.6;
+        }
+        .recommendation-author {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .recommendation-title {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .dark-mode .recommendation {
+            background-color: #2a2a2a;
+            border-left-color: #66aaff;
+            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+        }
+        .dark-mode .recommendation:hover {
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.15);
+        }
+        .dark-mode .recommendation-text {
+            color: #ccc;
+        }
+        .dark-mode .recommendation-author {
+            color: #e0e0e0;
+        }
+        .dark-mode .recommendation-title {
+            color: #aaa;
+        }
+
+        /* Contact Form Styling */
+        .contact-form {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border: 1px solid #e5e7eb;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            font-family: Arial, sans-serif;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0066cc;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .submit-btn {
+            background: #0066cc;
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .submit-btn:hover {
+            background: #0052a3;
+            transform: translateY(-2px);
+        }
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .contact-info a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .dark-mode .contact-form {
+            background: #2a2a2a;
+            border-color: #444;
+        }
+        .dark-mode .form-group label {
+            color: #e0e0e0;
+        }
+        .dark-mode .form-group input,
+        .dark-mode .form-group textarea {
+            background: #333;
+            border-color: #555;
+            color: #e0e0e0;
+        }
+        .dark-mode .form-group input:focus,
+        .dark-mode .form-group textarea:focus {
+            border-color: #66aaff;
+        }
+        .dark-mode .submit-btn {
+            background: #66aaff;
+            color: #1f2937;
+        }
+        .dark-mode .submit-btn:hover {
+            background: #5599ee;
+        }
+
+        /* Responsive Navigation - Matching main page */
         @media (max-width: 768px) {
             .profile-header {
                 flex-direction: column;
                 gap: 1rem;
                 text-align: center;
-            }
-
-            .profile-title {
-                font-size: 2rem;
             }
 
             .nav-links {
@@ -333,54 +483,24 @@
             }
 
             .nav-link {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
             }
 
             .kpi-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 1rem;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
 
             .flow-steps {
                 grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .flow-step:not(:last-child)::after {
-                content: '↓';
-                right: 50%;
-                top: auto;
-                bottom: -1.5rem;
-                transform: translateX(50%);
             }
 
             .highlights-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
             }
         }
 
         @media (max-width: 480px) {
-            .container {
-                padding: 0 1rem;
-            }
-
-            .section {
-                padding: 2rem 0;
-            }
-
-            .theme-toggle {
-                top: 10px;
-                right: 10px;
-                padding: 0.5rem 0.75rem;
-                font-size: 0.8rem;
-            }
-
             .nav-links {
                 flex-direction: column;
                 width: 100%;
@@ -394,130 +514,166 @@
     </style>
 </head>
 <body>
-    <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle">
-        🌙 Dark Mode
-    </button>
+    <button class="toggle-btn" onclick="toggleDarkMode()" id="themeToggle">🌙 Dark Mode</button>
 
-    <header class="header">
-    </header>
+    <div class="header">
+    </div>
 
-    <main class="container">
+    <div class="section">
         <div class="profile-header">
             <h1 class="profile-title">Sales Portfolio</h1>
             <nav class="nav-links">
-                <a href="main.html" class="nav-link">Main</a>
-                <a href="index.html" class="nav-link">Main</a>
+                <a href="main.html" class="nav-link">Home</a>
                 <a href="sales-portfolio.html" class="nav-link active">Sales</a>
                 <a href="technical-portfolio.html" class="nav-link">Technical</a>
             </nav>
         </div>
-        <!-- KPI Stats Section -->
-        <section class="section">
-            <h2 class="section-title">Performance Metrics</h2>
-            <div class="kpi-grid">
-                <div class="kpi-card fade-in">
-                    <div class="kpi-number">125%</div>
-                    <div class="kpi-label">Quota Achievement</div>
+        <p class="download-resume">
+            <a href="retail sales associate- resume.pdf" download>Download Resume (PDF)</a>
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Performance Metrics</h2>
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-number">125%</div>
+                <div class="kpi-label">Quota Achievement</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-number">90%</div>
+                <div class="kpi-label">Client Retention Rate</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-number">8+</div>
+                <div class="kpi-label">International Clients</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-number">40%</div>
+                <div class="kpi-label">YoY Growth Generated</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Sales Process Excellence</h2>
+        <div class="process-flow">
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="flow-icon">🎯</div>
+                    <div class="flow-title">Prospecting</div>
+                    <div class="flow-desc">Strategic lead identification and market research</div>
                 </div>
-                <div class="kpi-card fade-in">
-                    <div class="kpi-number">90%</div>
-                    <div class="kpi-label">Client Retention Rate</div>
+                <div class="flow-step">
+                    <div class="flow-icon">💬</div>
+                    <div class="flow-title">Pitching</div>
+                    <div class="flow-desc">Tailored presentations and value propositions</div>
                 </div>
-                <div class="kpi-card fade-in">
-                    <div class="kpi-number">8+</div>
-                    <div class="kpi-label">International Clients</div>
+                <div class="flow-step">
+                    <div class="flow-icon">🤝</div>
+                    <div class="flow-title">Negotiation</div>
+                    <div class="flow-desc">Win-win solutions and terms optimization</div>
                 </div>
-                <div class="kpi-card fade-in">
-                    <div class="kpi-number">40%</div>
-                    <div class="kpi-label">YoY Growth Generated</div>
+                <div class="flow-step">
+                    <div class="flow-icon">✅</div>
+                    <div class="flow-title">Closing</div>
+                    <div class="flow-desc">Deal finalization and contract execution</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon">🔄</div>
+                    <div class="flow-title">Retention</div>
+                    <div class="flow-desc">Long-term relationship building and growth</div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <!-- Sales Process Flow -->
-        <section class="section">
-            <h2 class="section-title">Sales Process Excellence</h2>
-            <div class="process-flow fade-in">
-                <div class="flow-steps">
-                    <div class="flow-step">
-                        <div class="flow-icon">🎯</div>
-                        <div class="flow-title">Prospecting</div>
-                        <div class="flow-desc">Strategic lead identification and market research</div>
-                    </div>
-                    <div class="flow-step">
-                        <div class="flow-icon">💬</div>
-                        <div class="flow-title">Pitching</div>
-                        <div class="flow-desc">Tailored presentations and value propositions</div>
-                    </div>
-                    <div class="flow-step">
-                        <div class="flow-icon">🤝</div>
-                        <div class="flow-title">Negotiation</div>
-                        <div class="flow-desc">Win-win solutions and terms optimization</div>
-                    </div>
-                    <div class="flow-step">
-                        <div class="flow-icon">✅</div>
-                        <div class="flow-title">Closing</div>
-                        <div class="flow-desc">Deal finalization and contract execution</div>
-                    </div>
-                    <div class="flow-step">
-                        <div class="flow-icon">🔄</div>
-                        <div class="flow-title">Retention</div>
-                        <div class="flow-desc">Long-term relationship building and growth</div>
-                    </div>
+    <div class="section">
+        <h2>Working Experience</h2>
+        <div class="experience-item">
+            <p><strong>Various Clients – via Freelancer, Upwork, and Direct Contracts · Freelance / Sales and Marketing Specialist</strong> &mdash; Oct. 2022 – Present</p>
+            <ul class="experience-desc">
+                <li>Sales & Outreach: Conducted lead generation, client prospecting, and targeted outreach campaigns, achieving a 90% repeat-client rate.</li>
+                <li>Client Consultation: Provided tailored business solutions by combining sales strategy with technical knowledge, building long-term trust with direct clients.</li>
+                <li>Marketing & Content Development: Delivered 60,000+ words of marketing content and designed professional presentations supporting client campaigns.</li>
+                <li>Technical & Operational Support: Assisted in development tasks (C++/systems) and conducted on-site business verification projects to validate client operations.</li>
+                <li>Project Delivery: Completed 8+ contracts across international clients with measurable results in sales support, marketing visibility, and operational accuracy.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <p><strong>Collecticons Inc. Filbar's Multiverse GH / Sales Associate</strong> &mdash; Mar. 2025 – Aug. 2025</p>
+            <ul class="experience-desc">
+                <li>Converted 15+ daily customer inquiries into purchases through tailored service.</li>
+                <li>Maintained 100% stock accuracy and optimized product displays to boost sales.</li>
+                <li>Built customer loyalty by resolving concerns quickly and professionally.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <p><strong>Green Life AVM Advertising / Sales Representative</strong> &mdash; Feb. 2022 – Jul. 2022</p>
+            <ul class="experience-desc">
+                <li>Conducted live product demonstrations and persuasive sales presentations.</li>
+                <li>Negotiated and closed multiple deals, consistently meeting targets.</li>
+                <li>Researched customer behavior to improve targeting and conversion rates.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Certifications</h2>
+        <ul>
+            <li><a href="Digital Marketing.png" class="cert-link" download>Fundamentals of Digital Marketing</a> — Google, 2023</li>
+            <li><a href="Administrative certification.png" class="cert-link" download>Administrative Professional Foundations</a> — LinkedIn, 2023</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Recommendations</h2>
+        
+    <div class="recommendation">
+      <div class="recommendation-text">
+        "She has quick adaptability and understood our requirements. She followed our guidelines and submitted a very good job."
+      </div>
+      <div class="recommendation-author">Van Thi N</div>
+      <div class="recommendation-title">Staff, Confirmis</div>
+    </div>
+
+    </div>
+
+    <div class="section">
+        <h2>Let's Work Together</h2>
+        <div class="contact-form">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
                 </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" placeholder="Tell me about your sales goals and how I can help..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+            
+            <div class="contact-info">
+                <span>📧 <a href="mailto:jennysubrastas25@gmail.com">jennysubrastas25@gmail.com</a></span>
+                <span>💼 <a href="https://linkedin.com/in/jennysubrastas-823017225" target="_blank">LinkedIn</a></span>
+                <span>🐙 <a href="https://github.com/ious-engineer" target="_blank">GitHub</a></span>
             </div>
-        </section>
-
-        <!-- Sales Highlights -->
-        <section class="section">
-            <h2 class="section-title">Sales Achievements</h2>
-            <div class="highlights-grid">
-                <div class="highlight-card fade-in">
-                    <h3 class="highlight-title">Expanded Retail Footprint</h3>
-                    <p class="highlight-desc">
-                        Successfully increased daily customer conversions through strategic product positioning and personalized service approaches, while maintaining perfect inventory accuracy standards.
-                    </p>
-                    <span class="highlight-metric">+15 daily conversions</span>
-                </div>
-
-                <div class="highlight-card fade-in">
-                    <h3 class="highlight-title">International Client Growth</h3>
-                    <p class="highlight-desc">
-                        Built and maintained relationships with 8+ international clients across diverse industries, delivering customized solutions and achieving exceptional repeat business rates.
-                    </p>
-                    <span class="highlight-metric">90% repeat rate</span>
-                </div>
-
-                <div class="highlight-card fade-in">
-                    <h3 class="highlight-title">Digital Marketing Excellence</h3>
-                    <p class="highlight-desc">
-                        Delivered comprehensive marketing campaigns with over 60,000 words of content, professional presentations, and strategic business solutions that drove measurable client growth.
-                    </p>
-                    <span class="highlight-metric">60K+ words delivered</span>
-                </div>
-
-                <div class="highlight-card fade-in">
-                    <h3 class="highlight-title">Technical Sales Integration</h3>
-                    <p class="highlight-desc">
-                        Combined technical expertise in C++ and systems with sales strategy to provide unique value propositions, resulting in enhanced client trust and project success rates.
-                    </p>
-                    <span class="highlight-metric">100% project delivery</span>
-                </div>
-
-                <div class="highlight-card fade-in">
-                    <h3 class="highlight-title">Cross-Platform Success</h3>
-                    <p class="highlight-desc">
-                        Leveraged multiple platforms including Freelancer, Upwork, and direct contracts to build diverse client portfolio and demonstrate adaptability across different business models.
-                    </p>
-                    <span class="highlight-metric">3+ platforms mastered</span>
-                </div>
-            </div>
-        </section>
-    </main>
+        </div>
+    </div>
 
     <script>
-        // Theme Toggle
-        function toggleTheme() {
+        function toggleDarkMode() {
             const body = document.body;
             const toggleBtn = document.getElementById('themeToggle');
             
@@ -525,55 +681,40 @@
             
             if (body.classList.contains('dark-mode')) {
                 toggleBtn.innerHTML = '☀️ Light Mode';
-                localStorage.setItem('salesPortfolioTheme', 'dark');
+                localStorage.setItem('darkMode', 'enabled');
             } else {
                 toggleBtn.innerHTML = '🌙 Dark Mode';
-                localStorage.setItem('salesPortfolioTheme', 'light');
+                localStorage.setItem('darkMode', 'disabled');
             }
         }
 
-        // Initialize theme on page load
+        // Check for saved user preference on page load
         document.addEventListener('DOMContentLoaded', function() {
-            const savedTheme = localStorage.getItem('salesPortfolioTheme');
+            const darkMode = localStorage.getItem('darkMode');
             const toggleBtn = document.getElementById('themeToggle');
             
-            if (savedTheme === 'dark') {
+            if (darkMode === 'enabled') {
                 document.body.classList.add('dark-mode');
                 toggleBtn.innerHTML = '☀️ Light Mode';
             }
         });
 
-        // Scroll Animation
-        function isElementInViewport(el) {
-            const rect = el.getBoundingClientRect();
-            return (
-                rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-            );
-        }
-
-        function handleScrollAnimations() {
-            const elements = document.querySelectorAll('.fade-in');
-            elements.forEach(el => {
-                if (isElementInViewport(el)) {
-                    el.classList.add('visible');
-                }
-            });
-        }
-
-        // Throttled scroll event
-        let scrollTimeout;
-        window.addEventListener('scroll', () => {
-            if (scrollTimeout) {
-                clearTimeout(scrollTimeout);
-            }
-            scrollTimeout = setTimeout(handleScrollAnimations, 10);
+        // Contact Form Handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const company = document.getElementById('company').value;
+            const message = document.getElementById('message').value;
+            
+            // Create mailto link
+            const subject = company ? `Sales Inquiry from ${name} (${company})` : `Sales Inquiry from ${name}`;
+            const body = `Hi Jenny,\n\n${message}\n\nBest regards,\n${name}\n${email}${company ? `\n${company}` : ''}`;
+            
+            const mailtoLink = `mailto:jennysubrastas25@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
         });
-
-        // Initial check
-        handleScrollAnimations();
     </script>
 </body>
 </html>

@@ -217,7 +217,94 @@ text-decoration: none !important;
 background: linear-gradient(135deg, #66aaff 0%, #8a7fff 100%);
 }
 
-/* Responsive Navigation */
+/* Contact Form Styling */
+.contact-form {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border: 1px solid #e5e7eb;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            font-family: Arial, sans-serif;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0066cc;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .submit-btn {
+            background: #0066cc;
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .submit-btn:hover {
+            background: #0052a3;
+            transform: translateY(-2px);
+        }
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .contact-info a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .dark-mode .contact-form {
+            background: #2a2a2a;
+            border-color: #444;
+        }
+        .dark-mode .form-group label {
+            color: #e0e0e0;
+        }
+        .dark-mode .form-group input,
+        .dark-mode .form-group textarea {
+            background: #333;
+            border-color: #555;
+            color: #e0e0e0;
+        }
+        .dark-mode .form-group input:focus,
+        .dark-mode .form-group textarea:focus {
+            border-color: #66aaff;
+        }
+        .dark-mode .submit-btn {
+            background: #66aaff;
+            color: #1f2937;
+        }
+        .dark-mode .submit-btn:hover {
+            background: #5599ee;
+        }
+
+        /* Responsive Navigation */
 @media (max-width: 768px) {
 .profile-header {
 flex-direction: column;
@@ -256,53 +343,24 @@ text-align: center;
 
 <div class="section">
 <div class="profile-header">
-<h1 class="profile-title">Jenny M. Subrastas</h1>
+<h1 class="profile-title">Technical Portfolio</h1>
 <nav class="nav-links">
-<a href="main.html" class="nav-link">Main</a>
-<a href="index.html" class="nav-link">Main</a>
+<a href="main.html" class="nav-link">Home</a>
 <a href="sales-portfolio.html" class="nav-link">Sales</a>
 <a href="technical-portfolio.html" class="nav-link active">Technical</a>
 </nav>
 </div>
-<p>Computer Engineering + Business + Customized Solutions</p>
 <p class="download-resume">
 <a href="retail sales associate- resume.pdf" download>Download Resume (PDF)</a>
 </p>
 </div>
 
   <div class="section">
-    <h2>About</h2>
-    <p>
-      I studied Computer Engineering and focused on using C++ to solve real-world problems. Along the way, I worked in sales, which gave me a clear view of how technology and business connect. I like creating solutions that make operations smoother and more efficient. Right now, I’m building my brand and aiming to grow into tech-driven business and digital services.
-    </p>
-  </div>
-
-  <div class="section">
     <h2>Experience</h2>
     <p><strong> Various Clients – via Freelancer, Upwork, and Direct Contracts · Freelance / Sales and Marketing Specialist</strong> &mdash; Oct. 2022  – Present</p>
     <ul>
-      <li> Sales & Outreach: Conducted lead generation, client prospecting, and targeted outreach campaigns, achieving a 90% repeat-client rate.</li>
       <li> Client Consultation: Provided tailored business solutions by combining sales strategy with technical knowledge, building long-term trust with direct clients.</li>
-      <li> Marketing & Content Development: Delivered 60,000+ words of marketing content and designed professional presentations supporting client campaigns.</li>
       <li>  Technical & Operational Support: Assisted in development tasks (C++/systems) and conducted on-site business verification projects to validate client operations.</li>
-      <li>  Project Delivery: Completed 8+ contracts across international clients with measurable results in sales support, marketing visibility, and operational accuracy.</li>
-    </ul>
-
-    <p><strong> Collecticons Inc. Filbar's Multiverse GH / Sales Associate</strong> &mdash; Mar. 2025  – Aug. 2025</p>
-    <ul>
-      <li> Converted 15+ daily customer inquiries into purchases through tailored
-      service.</li>
-      <li>Maintained 100% stock accuracy and optimized product displays to boost
-      sales.</li>
-      <li> Built customer loyalty by resolving concerns quickly and professionally.</li>
-    </ul>
-
-    <p><strong>Green Life AVM Advertising / Sales Representative</strong> &mdash; Feb. 2022 – Jul. 2022</p>
-    <ul>
-      <li>Conducted live product demonstrations and persuasive sales
-      presentations.</li>
-      <li>Negotiated and closed multiple deals, consistently meeting targets.</li>
-      <li> Researched customer behavior to improve targeting and conversion rates.</li>
     </ul>
   </div>
 
@@ -332,7 +390,8 @@ text-align: center;
     <p><strong>Backend Tech Stack:</strong> Node.js, Express.js, MongoDB, JWT, bcryptjs, CORS</p>
     <p><strong>Frontend Tech Stack:</strong> HTML5, CSS3, JavaScript ES6+, Fetch API</p>
     <p><strong>Features:</strong> User Authentication, Role-based Dashboards, Profile Management, Search System, API Documentation, Interactive Frontend</p>
-
+    <p><strong>Links:</strong> 
+        <a href="https://github.com/ious-engineer/eConnect" target="_blank" class="project-link">📂 GitHub Repository</a></p>
     <p><strong><a href="#">RE (Real Estate Platform)</a></strong> — Property Management System</p>
     <p>Comprehensive backend solution integrating property management, customer interaction APIs, data analytics pipeline, and secure transaction processing. Features include automated property valuation algorithms, user management system, and cloud-based file storage with AWS S3 integration.</p>
   </div>
@@ -344,8 +403,6 @@ text-align: center;
       <li><a href="Computer Hardware Basics.pdf" class="cert-link" download>Computer Hardware Basics</a> — CISCO, 2024</li>
       <li><a href="Operating System Basics.pdf" class="cert-link" download>Operating Systems Basics</a> — CISCO, 2024</li>
       <li><a href="AWS participation certificate.png" class="cert-link" download>AWS Builders Online Series</a> — AWS, 2024</li>
-      <li><a href="Digital Marketing.png" class="cert-link" download>Fundamentals of Digital Marketing</a> — Google, 2023</li>
-      <li><a href="Administrative certification.png" class="cert-link" download>Administrative Professional Foundations</a> — LinkedIn, 2023</li>
     </ul>
   </div>
 
@@ -367,21 +424,38 @@ text-align: center;
       <div class="recommendation-author">Paul Najarian</div>
       <div class="recommendation-title">Founder, Pulvina Inc.</div>
     </div>
-
-    <div class="recommendation">
-      <div class="recommendation-text">
-        "She has quick adaptability and understood our requirements. She followed our guidelines and submitted a very good job."
-      </div>
-      <div class="recommendation-author">Van Thi N</div>
-      <div class="recommendation-title">Staff, Confirmis</div>
-    </div>
+    
   </div>
 
   <div class="section">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:jennysubrastas25@gmail.com">jennysubrastas25@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/jennysubrastas-823017225">linkedin.com/in/jennysubrastas-823017225</a></p>
-    <p>GitHub: <a href="https://github.com/ious-engineer">github.com/ious-engineer</a></p>
+    <h2>Let's Work Together</h2>
+    <div class="contact-form">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" placeholder="Tell me about your project and how I can help..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+            
+            <div class="contact-info">
+                <span>📧 <a href="mailto:jennysubrastas25@gmail.com">jennysubrastas25@gmail.com</a></span>
+                <span>💼 <a href="https://linkedin.com/in/jennysubrastas-823017225" target="_blank">LinkedIn</a></span>
+                <span>🐙 <a href="https://github.com/ious-engineer" target="_blank">GitHub</a></span>
+            </div>
+        </div>
   </div>
 
 <script>
@@ -413,6 +487,23 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleBtn.innerHTML = '☀️ Light Mode';
     }
 });
+
+// Contact Form Handler
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const company = document.getElementById('company').value;
+            const message = document.getElementById('message').value;
+            
+            // Create mailto link
+            const subject = company ? `Technical Project Inquiry from ${name} (${company})` : `Technical Project Inquiry from ${name}`;
+            const body = `Hi Jenny,\n\n${message}\n\nBest regards,\n${name}\n${email}${company ? `\n${company}` : ''}`;
+            
+            const mailtoLink = `mailto:jennysubrastas25@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
+        });
 </script>
 
 </body>
