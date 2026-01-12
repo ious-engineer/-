@@ -1,6 +1,6 @@
 # Jenny M. Subrastas - Portfolio
 
-[![Live Portfolio](https://img.shields.io/badge/Live-Portfolio-blue?style=for-the-badge)][(https://ious-engineer.github.io/portfolio/)]
+[![Live Portfolio](https://img.shields.io/badge/Live-Portfolio-blue?style=for-the-badge)](https://ious-engineer.github.io/portfolio/)
 
 ## 🌟 About
 
