@@ -1,6 +1,6 @@
 # Jenny M. Subrastas - Portfolio
 
-[![Live Portfolio](https://img.shields.io/badge/Live-Portfolio-blue?style=for-the-badge)](https://ious-engineer.github.io/-/)
+[![Live Portfolio](https://img.shields.io/badge/Live-Portfolio-blue?style=for-the-badge)](https://ious-engineer.github.io/portfolio/)
 
 ## 🌟 About
 
@@ -32,9 +32,6 @@ Personal portfolio website showcasing my experience in Computer Engineering, sal
 - **Certifications** - Professional certifications with download links
 - **Contact** - Ways to get in touch
 
-## 🌐 Live Demo
-
-Visit the live portfolio: (https://ious-engineer.github.io/-/)
 
 ## 📧 Contact
 
