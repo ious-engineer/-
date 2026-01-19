@@ -1,0 +1,28 @@
+RewriteEngine On
+
+# Force HTTPS (optional - uncomment if you want to enforce SSL)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Remove .html extension from URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Redirect .html to clean URLs
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1? [NC,L,R=301]
+
+# Handle root index
+RewriteRule ^$ index.html [NC,L]
+
+# Custom redirects for specific pages
+RewriteRule ^home$ index.html [NC,L]
+RewriteRule ^sales$ sales-portfolio.html [NC,L]
+RewriteRule ^technical$ technical-portfolio.html [NC,L]
+
+# Prevent access to sensitive files
+<Files ~ "^\.ht">
+Order allow,deny
+Deny from all
+</Files>
